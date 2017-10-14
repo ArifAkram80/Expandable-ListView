@@ -2,7 +2,10 @@ package com.example.arif.expandablelistview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +29,15 @@ public class MainActivity extends AppCompatActivity
         initData();
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listHash);
         listView.setAdapter(listAdapter);
+
+        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+                Toast.makeText(MainActivity.this, "Postions = " + i + " " + i1 + " " + l, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        }) ;
+
     }
 
     private void initData() {
