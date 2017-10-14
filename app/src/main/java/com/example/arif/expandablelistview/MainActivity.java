@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity
         listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                Toast.makeText(MainActivity.this, "Postions = " + i + " " + i1 + " " + l, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Postions = " + i + " " + i1 + " " + l, Toast.LENGTH_SHORT).show();
+                String str = listHash.get(listDataHeader.get(i)).get(i1).toString();
+                Toast.makeText(MainActivity.this, "Value = " + str + "   Position = " +  i + " " + i1 + " " + l, Toast.LENGTH_SHORT).show();
                 return true;
             }
         }) ;
